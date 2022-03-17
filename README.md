@@ -6,7 +6,7 @@ Hij controleert ook of de naam van de bestand al bestaat en als dat zo is dan ma
 import json
 import os.path
 
-namesData = json.dumps(namesDict)
+namesData = json.dumps(namesDict, indent = 2)
 dictionaryData = json.loads(namesData)
 
 num = 1

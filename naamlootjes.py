@@ -48,7 +48,7 @@ print("")
 for m, n in namesDict.items():
     print(m + ": " + n)
 
-namesData = json.dumps(namesDict)
+namesData = json.dumps(namesDict, indent = 2)
 dictionaryData = json.loads(namesData)
 
 # num = 1
