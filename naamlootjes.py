@@ -1,7 +1,7 @@
 import random
 import json
 import os.path
-
+import datetime 
 names = []
 namesDict = {}
 lottery = []
@@ -51,16 +51,19 @@ for m, n in namesDict.items():
 namesData = json.dumps(namesDict)
 dictionaryData = json.loads(namesData)
 
-num = 1
-titleData = "datanaamlijst" + str(num)
+# num = 1
 
-while True:
-    if os.path.exists("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData):
-        num += 1
-        titleData = "datanaamlijst" + str(num)
-    else:
-        folderData = open("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData,"x")
-        folderData.writelines(namesData)
-        break
-        
-folderData.close()
+# titleData = "datanaamlijst" + str(num)
+
+# while True:
+#     if os.path.exists("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData):
+#         num += 1
+#         titleData = "datanaamlijst" + str(num)
+#     else:
+#         folderData = open("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData,"x")
+#         folderData.writelines(namesData)
+#         break
+
+titleData = "data_naamlijst_(" + str(datetime.datetime.now().timestamp()) + ")"
+with open("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData,"x") as f:
+    f.writelines(namesData)

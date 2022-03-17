@@ -21,3 +21,10 @@ while True:
         folderData.writelines(namesData)
         break
 ```
+### aanpassing
+ik heb de namen met een timestamp gedaan waardoor hij niet hoeft te controleren op dubbele namen
+``` python
+titleData = "data_naamlijst_(" + str(datetime.datetime.now().timestamp()) + ")"
+with open("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData,"x") as f:
+    f.writelines(namesData)
+```
