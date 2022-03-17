@@ -64,6 +64,6 @@ dictionaryData = json.loads(namesData)
 #         folderData.writelines(namesData)
 #         break
 
-titleData = "data_naamlijst_(" + str(datetime.datetime.now().timestamp()) + ")"
+titleData = "data_naamlijst_(" + str(datetime.datetime.now().timestamp()) + ").json"
 with open("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData,"x") as f:
     f.writelines(namesData)

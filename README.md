@@ -22,9 +22,9 @@ while True:
         break
 ```
 ### aanpassing
-ik heb de namen met een timestamp gedaan waardoor hij niet hoeft te controleren op dubbele namen
+ik heb de namen met een timestamp gedaan waardoor hij niet hoeft te controleren op dubbele namen en het word nu ook opgeslagen als een json file
 ``` python
-titleData = "data_naamlijst_(" + str(datetime.datetime.now().timestamp()) + ")"
+titleData = "data_naamlijst_(" + str(datetime.datetime.now().timestamp()) + ").json"
 with open("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData,"x") as f:
     f.writelines(namesData)
 ```
