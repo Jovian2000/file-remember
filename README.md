@@ -28,3 +28,26 @@ titleData = "data_naamlijst_(" + str(datetime.datetime.now().timestamp()) + ").j
 with open("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData,"x") as f:
     f.writelines(namesData)
 ```
+## F1.09.03.O3 - Continue from autosave?
+Ik had de hele game die ik eerder had moeten maken helemaal aangepast, maar nu heeft het ook een autosave.
+Dit zijn de belangrijkste voor de auto save
+``` python
+
+fileName = "C:/Users/Gebruiker/Documents/ICT/file-remember/autosave.json"
+num = 0
+
+if os.path.exists(fileName):    
+    askContinue = input("Do you want to continue from last save? (Y/N)\n")
+    if askContinue == "y" or askContinue == "Y":
+        with open(fileName, "r") as n:
+            num = int(n.read())
+    os.remove(fileName)
+
+for i in range(num, len(listStage)):
+    with open(fileName, "x") as j:
+        j.write(str(i))
+    if game(listStage[i], listStory[i], listQuestions[i], listAnswer[i], listFailure[i]) == False:
+        lose()
+        break
+    os.remove(fileName)
+```

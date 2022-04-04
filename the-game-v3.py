@@ -1,3 +1,24 @@
+import os.path, json, os
+
+def lose():
+    global win
+    win = False
+    print("Game over!")
+
+def game(stage, story, questions, answer, failure):
+    print("\nStage: " + str(stage) + "\n")
+    print(story + "\n")
+    print(questions + "\n")
+    userAnswer = input(name + ": ")
+    print(name + " choose " + userAnswer)
+    if userAnswer == answer:
+        return True
+    else:
+        print(failure)
+        return False
+
+fileName = "C:/Users/Gebruiker/Documents/ICT/file-remember/autosave.json"
+
 print("---------------------------------------------")
 print("         Welcome                             ")
 print("You will enter a cave to steal               ")
@@ -10,244 +31,76 @@ print("Type correctly or you wil automatically")
 print("choose the wrong path")
 print("")
 print("Enter your name")
-def lose():
-    print("Game over!")
+
 name = input("Name: ")
-print("")
-print("Stage 1")
-print("You find your self in the entrance of the dangerous cave. You enter the cave and you see 2 paths.")
-print("They both have signs.")
-print("The left one says this way for the gem an the right one says no entry.")
-print("")
-print("Which way are you choosing? Left/Right")
-stage1 = input(name + ": ")
-if stage1 == "Right" or stage1 == "right":
-    print("")
-    print(name + " choose the right path")
-    print("")
-    print("Stage 2")
-    print("")
-    print("Good job, obviously it would be a trap if you chose the obvious path.")
-    print(name + " enters the right path and sees a room and at the end of the room a closed door.")
-    print("There is a bucket with unlimited stones, an empty vase in the middle of the room")
-    print("and on the wall you see a sign that says:")
-    print("'Put the right ammount in the vase and the door will open.'")    
-    print(name + " also sees: 'hint: 5 x 3 - 2 x 5 + 3'")
-    print(name + " picks up some stones and put it in the vase.")
-    print("")
-    print("How many stones do you put in the vase?")
-    stage2 = int(input(name + ": "))
-    if stage2 == 8:
-        print("")
-        print(name + " put " + str(stage2) + " stones in the vase")
-        print("")
-        print("Stage 3")
-        print("After " + name + " puts stones in the vase, the closed door slowly turns open.")
-        print(name + " walks through the door and sees another room with an iron shield, a sword")
-        print("and a bow and arrow. " + name + " picks up the weapons and walks further. Suddenly a giant")
-        print("dragon appears. " + name + " took out his weapons and decided to take on the giant dragon.")
-        print("")
-        print("What is your first move? A/B" )
-        print("A: Use your shield to charge forward and use the sword to strike the dragon")
-        print("B: Use your bow and arrow to hit the dragon")
-        stage3 = input(name + ": ")
-        if stage3 == "A" or stage3 == "a":
-            print("")
-            print(name + " use the shield and sword")
-            print("")
-            print("Stage 4")
-            print("After a succesfull hit, the dragon screamed and was ready to attack")
-            print("from above. " + name + " use his shield to block some attacks and ")
-            print("tries to dodge the heavy attacks. Now its time to use his bow.")
-            print("")
-            print("How many arrows will you shoot?")
-            stage4 = int(input(name + ": "))
-            if stage4 <= 4:
-                print("")
-                print(name + " use " + str(stage4) + " arrows")
-                print("")
-                print("Stage 5")
-                print("After shooting the arrows, the dragon goes for another attack.")
-                print(name + " managed to dodge because he didn't try to shoot too much.")
-                print("The dragon landed back on the ground. It looks like he needs to rest")
-                print("after the shots. Now is your chance to strike.")
-                print("")
-                print("How many strikes will you use with your sword?")
-                stage5 = int(input(name + ": "))
-                if stage5 >= 5:
-                    print("")
-                    print(name + " use " + str(stage5) + " strikes")
-                    print("")
-                    print("Stage 6")
-                    print("Thats enough strikes, the dragon dies and " + name + " walks further.")
-                    print("There is another room with 3 questions, it looks like you have to answer")
-                    print("them correctly or else something bad will happen.")
-                    print("")
-                    print("First question: What is 3x3?")
-                    stage6a = int(input(name + ": "))
-                    print("")
-                    print("Second question: What is 12x5?")
-                    stage6b = int(input(name + ": "))
-                    print("")
-                    print("Third question: What is 32x13?")
-                    stage6c = int(input(name + ": "))
-                    if (stage6a == 9) and (stage6b == 60) and (stage6c == 416):
-                        print("")
-                        print(name + " answered " + str(stage6a) + ", " + str(stage6b) + " and " + str(stage6c))
-                        print("")
-                        print("Stage 7")
-                        print("Thats the correct answers. The next door opens up and " + name + " enters the")
-                        print("next room. There is another vase and a sign that says: 'Not more than pentagon")
-                        print(name + " sees another bucket of stones and tries to fill the vase")
-                        print("")
-                        print("How many stones this time?")
-                        stage7 = int(input(name + ": "))
-                        if stage7 < 5:
-                            print("")
-                            print(name + " puts " + str(stage7) + " stones in the vase")
-                            print("")
-                            print("Stage 8")
-                            print("Good job! Pentagon means something with 5, so that means not more than 5.")
-                            print("The next door opens and " + name + " sees a room with 2 paths again.")
-                            print("This time there is only 1 sign that says:'Only 1 way correct'.")
-                            print("")
-                            print("Which way are you going? Left/Right")
-                            stage8 = input(name + ": ")
-                            if stage8 == "Left" or stage8 == "left":
-                                print("")
-                                print(name + " choose the left path")
-                                print("")
-                                print("Stage 9")
-                                print("It looks like this is the good path, nothing bad happened")
-                                print(name + " sees another closed door. There is a lock and you need")
-                                print("to put the right code to open it.")
-                                print("")
-                                print("What is the code? (hint: the numbers you saw earlier in the game)")
-                                stage9 = input(name + ": ")
-                                if stage9 == "960416":
-                                    print("")
-                                    print(name + " type: " + stage9)
-                                    print("")
-                                    print("Stage 10")
-                                    print("Nice! It looks like thats the right code. The door opens.")
-                                    print("Another room with a stone guard in front of the last door.")
-                                    print("The guard says: 'Intruder!'. The stone guard attacks, but")
-                                    print("luckily you have your weapons.")
-                                    print("")
-                                    print("What is your next move? A/B/C")
-                                    print("A: Use sword to strike the guard")
-                                    print("B: Use shield to charge")
-                                    print("C: Use bow and arrow to shoot")
-                                    stage10 = input(name + ": ")
-                                    if stage10 == "B" or stage10 == "b":
-                                        print("")
-                                        print(name + " used shield to charge")
-                                        print("")
-                                        print(name + " charged the guard and the guard instantly breaks into pieces.")
-                                        print("After the guard dies, " + name + " sees the open door that was behind")
-                                        print("the guard. " + name + " entered the last room and sees the gem." )
-                                        print(name + " picks up the gem and leaves the dangerous cave.")
-                                        print("")
-                                        print("The end!")
-                                        print("")
-                                        print("Congratulations!!!!")
-                                        print(name + " succesfully stole the gem!")
-                                    elif stage10 == "A" or stage10 == "a":
-                                        print("")
-                                        print(name + " used sword to strike")
-                                        print("")
-                                        print(name + " strikes the guard multiple times but because of the stone skin,")
-                                        print("the sword broke. After the sword broke, the guard attacks with his hammer.")
-                                        print("The guard hit " + name + " and " + name + " dies.")
-                                        print("")
-                                        lose()
-                                    else:
-                                        print("")
-                                        print(name + " used bow and arrow to shoot")
-                                        print("")
-                                        print(name + " shoots the guard, but its ineffect because of the stone skin. ")
-                                        print("The guard hit " + name + " with a hammer and " + name + " dies.")
-                                        print("")
-                                        print("Game over!")
-                                else:
-                                    print("")
-                                    print(name + " type: " + stage9)
-                                    print("")
-                                    print("Thats the wrong code!")
-                                    print("The room explodes instantly and " + name + " dies!")
-                                    print("")
-                                    lose() 
-                            else:
-                                print("")
-                                print(name + " choose the right path")
-                                print("")
-                                print("Thats the wrong path." + name + " gets attacked by poisoned bats")
-                                print(name + " dies because of the poison")
-                                print("")
-                                lose()
-                        else:
-                            print("")
-                            print(name + " puts " + str(stage7) + " stones in the vase")
-                            print("")
-                            print("Thats too much!")
-                            print("Pentagon means something with 5, so that means not more than 5.")
-                            print("The room starts to collapse and " + name + " dies!")
-                            print("")
-                            lose()
-                    else:
-                        print("")
-                        print(name + " answered " + str(stage6a) + ", " + str(stage6b) + " and " + str(stage6c))
-                        print("")
-                        print("Thats the wrong answer(s). Suddenly the room gets filled with lava and")
-                        print(name + " can't see a way out and dies.")
-                        lose()
-                else:
-                    print("")
-                    print(name + " use " + str(stage5) + " strikes")
-                    print("")
-                    print("Thats not enough! The dragon wakes up and bites " + name + " lower half.")
-                    print(name + " can't do anything, bleeds out and dies.")
-                    print("")
-                    lose()
-            else:
-                print("")
-                print(name + " use " + str(stage4) + " arrows")
-                print("")
-                print(name + " shoots his arrows, but the dragon attacks and " + name + " was")
-                print("too focused with his shots. Because " + name + " tries to shoot so many,")
-                print("the dragon managed to hit him hard and " + name + " died.")
-                print("")
-                lose()
-        else:
-            print("")
-            print(name + " use the bow and arrow")
-            print("")
-            print("After trying to shoot, the dragon spit fire and burns " + name + ".")
-            print("")
-            lose() 
-    elif stage2 > 8:
-        print("")
-        print(name + " put " + str(stage2) + " stones in the vase")
-        print("")
-        print("Thats too much!")
-        print("Suddenly the room starts to collapse. " + name + " tries to run but " + name + " was too late")
-        print("to run away. " + name + " got hit by a couple of falling rocks and dies")
-        print("")
+
+num = 0
+win = True
+listStage = []
+listStory = []
+listQuestions = []
+listAnswer = ["b", "d", "a", "a", "c", "416", "5", "a", "4165", "b"]
+listFailure = []
+
+for x in range(1,11):
+    listStage.append(x)
+
+listStory.append("You find your self in the entrance of the dangerous cave. You enter the cave and you see 2 paths.\nThey both have signs.\nThe left one says this way for the gem an the right one says no entry.\n")
+listQuestions.append("Which way are you choosing?\nA: Left\nB: Right")
+listFailure.append(name + " enters the left path and suddenly a giant rock falls from above.\nIt was impossible to dodge the giant rock.\nIt appears the sign was a trap for anyone who tries to steal the gem." )
+
+listStory.append("Good job, obviously it would be a trap if you chose the obvious path.\n" + name + " enters the right path and sees a room and at the end of the room a closed door.\nThere is a bucket with unlimited stones, an empty vase in the middle of the room\nand on the wall you see a sign that says:\n'Put the right ammount in the vase and the door will open.'\n" + name + " also sees: 'hint: 5 x 3 - 2 x 5 + 3'")
+listQuestions.append("How many stones do you put in the vase?\nA: 3\nB: 4\nC: 6\nD: 8")
+listFailure.append("Thats not enough!\nThe ground opens up and " + name + " falls in a sea of lava")
+
+listStory.append("After " + name + " puts stones in the vase, the closed door slowly turns open.\n" + name + " walks through the door and sees another room with an iron shield, a sword\nand a bow and arrow. " + name + " picks up the weapons and walks further. Suddenly a giant\ndragon appears. "  + name + " took out his weapons and decided to take on the giant dragon.")
+listQuestions.append("What is your first move?\nA: Use your shield to charge forward and use the sword to strike the dragon\nB: Use your bow and arrow to hit the dragon")
+listFailure.append("After trying to shoot, the dragon spit fire and burns " + name + ".")
+
+listStory.append("After a succesfull hit, the dragon screamed and was ready to attack\nfrom above. " + name + " use his shield to block some attacks and\ntries to dodge the heavy attacks. Now its time to use his bow.")
+listQuestions.append("How many arrows will you shoot?\nA: 4\nB: 6\nC: 8\nD: 10")
+listFailure.append(name + " shoots his arrows, but the dragon attacks and " + name + " was\ntoo focused with his shots. Because " + name + " tries to shoot so many,\nthe dragon managed to hit him hard and " + name + " died.")
+
+listStory.append("After shooting the arrows, the dragon goes for another attack.\n" + name + " managed to dodge because he didn't try to shoot too much.\nThe dragon landed back on the ground. It looks like he needs to rest\nafter the shots. Now is your chance to strike.")
+listQuestions.append("How many strikes will you use with your sword?\nA: 1\nB: 4\nC: 6\nD: 5")
+listFailure.append("Thats not enough! The dragon wakes up and bites " + name + " lower half.\n" + name + " can't do anything, bleeds out and dies.")
+
+listStory.append("Thats enough strikes, the dragon dies and " + name + " walks further.\nThere is another room with 1 question, it looks like you have to answer\nit correctly or else something bad will happen.")
+listQuestions.append("What is 32x13?")
+listFailure.append("Thats the wrong answer. Suddenly the room gets filled with lava and\n" + name + " can't see a way out and dies.")
+
+listStory.append("Thats the correct answers. The next door opens up and " + name + " enters the\nnext room. There is another vase and a sign that says: 'Pentagon\n" + name + " sees another bucket of stones and tries to fill the vase")
+listQuestions.append("How many stones this time?")
+listFailure.append("Thats the wrong answer. Pentagon means something with 5\nThe room starts to collapse and " + name + " dies!")
+
+listStory.append("Good job! Pentagon means something with 5.\nThe next door opens and " + name + " sees a room with 2 paths again.\nThis time there is only 1 sign that says:'Only 1 way correct'.")
+listQuestions.append("Which way are you going?\nA: Left\nB: Right")
+listFailure.append("Thats the wrong path." + name + " gets attacked by poisoned bats\n" + name + " dies because of the poison")
+
+listStory.append("It looks like this is the good path, nothing bad happened\n" + name + " sees another closed door. There is a lock and you need\nto put the right code to open it.")
+listQuestions.append("What is the code? (hint: the numbers you saw earlier in the game)")
+listFailure.append("Thats the wrong code!\nThe room explodes instantly and " + name + " dies!")
+
+listStory.append("Nice! It looks like thats the right code. The door opens.\nAnother room with a stone guard in front of the last door.\nThe guard says: 'Intruder!'. The stone guard attacks, but\nluckily you have your weapons.")
+listQuestions.append("What is your next move?\nA: Use sword to strike the guard\nB: Use shield to charge\nC: Use bow and arrow to shoot")
+listFailure.append("The weapon you chose didn't work.\nThe guard hit " + name + " with a hammer and " + name + " dies.")
+
+winText = name + " charged the guard and the guard instantly breaks into pieces.\nAfter the guard dies, " + name + " sees the open door that was behind\nthe guard. " + name + " entered the last room and sees the gem.\n" + name + " picks up the gem and leaves the dangerous cave.\n\nThe end!\n\nCongratulations!!!!"
+
+if os.path.exists(fileName):    
+    askContinue = input("Do you want to continue from last save? (Y/N)\n")
+    if askContinue == "y" or askContinue == "Y":
+        with open(fileName, "r") as n:
+            num = int(n.read())
+    os.remove(fileName)
+
+for i in range(num, len(listStage)):
+    with open(fileName, "x") as j:
+        j.write(str(i))
+    if game(listStage[i], listStory[i], listQuestions[i], listAnswer[i], listFailure[i]) == False:
         lose()
-    else:
-        print("")
-        print(name + " put " + str(stage2) + " stones in the vase")
-        print("")
-        print("Thats not enough!") 
-        print("The ground opens up and " + name + " falls in a sea of lava")
-        print("")
-        lose()
-else:
-    print("")
-    print(name + " choose the left path")
-    print("")
-    print(name + " enters the left path and suddenly a giant rock falls from above.")
-    print("It was impossible to dodge the giant rock.")
-    print("It appears the sign was a trap for anyone who tries to steal the gem.")
-    print("")
-    lose()
+        break
+    os.remove(fileName)
+    
+if win:
+    print(winText)
