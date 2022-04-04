@@ -13,11 +13,11 @@ num = 1
 titleData = "datanaamlijst" + str(num)
 
 while True:
-    if os.path.exists("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData):
+    if os.path.exists("C:/Users/Gebruiker/Documents/ICT/file-remember/data/" + titleData):
         num += 1
         titleData = "datanaamlijst" + str(num)
     else:
-        folderData = open("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData,"x")
+        folderData = open("C:/Users/Gebruiker/Documents/ICT/file-remember/data/" + titleData,"x")
         folderData.writelines(namesData)
         break
 ```
@@ -25,7 +25,7 @@ while True:
 ik heb de namen met een timestamp gedaan waardoor hij niet hoeft te controleren op dubbele namen en het word nu ook opgeslagen als een json file
 ``` python
 titleData = "data_naamlijst_(" + str(datetime.datetime.now().timestamp()) + ").json"
-with open("C:/Users/Gebruiker/OneDrive/Bureaublad/ICT/file-remember/data/" + titleData,"x") as f:
+with open("C:/Users/Gebruiker/Documents/ICT/file-remember/data/" + titleData,"x") as f:
     f.writelines(namesData)
 ```
 ## F1.09.03.O3 - Continue from autosave?

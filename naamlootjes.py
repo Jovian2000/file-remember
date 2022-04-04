@@ -65,6 +65,6 @@ dictionaryData = json.loads(namesData)
 #         break
 
 titleData = "data_naamlijst_(" + str(datetime.datetime.now().timestamp()) + ").json"
-with open("C:/ICT/file-remember/data/" + titleData,"x") as f:
+with open("C:/Users/Gebruiker/Documents/ICT/file-remember/data/" + titleData,"x") as f:
     f.writelines(namesData)
 
