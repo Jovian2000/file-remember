@@ -51,3 +51,35 @@ for i in range(num, len(listStage)):
         break
     os.remove(fileName)
 ```
+### aanpassingen
+Dit zijn de volgende aanpassingen. Ik heb het nu echt een dictionary van wat het programma moet opslaan gemaakt waardoor het meer op een json format lijkt.
+Het onthoud nu ook de naam die je hebt ingevoerd.
+``` python
+if os.path.exists(fileName):    
+    with open(fileName, "r") as n:
+        loadedData = json.load(n)
+        if type(loadedData["Stage"]) == int:
+            askContinue = input("Do you want to continue from last save? (Y/N)\n").lower()
+            if askContinue == "y":
+                for k, v in loadedData.items():
+                    num = loadedData["Stage"]
+                    name = loadedData["Name"]
+            else:
+                name = input("Name: ")
+        else:
+            name = input("Name: ")
+    os.remove(fileName)
+else:
+    name = input("Name: ")
+```
+``` python
+for i in range(num, len(listStage)):
+    gameDict = {"Name" : name,"Stage" : i}
+    gameData = json.dumps(gameDict, indent=1)
+    with open(fileName, "x") as j:
+        j.writelines(gameData)
+    if game(listStage[i], listStory[i], listQuestions[i], listAnswer[i], listFailure[i]) == False:
+        lose()
+        break
+    os.remove(fileName)
+```

@@ -9,7 +9,7 @@ def game(stage, story, questions, answer, failure):
     print("\nStage: " + str(stage) + "\n")
     print(story + "\n")
     print(questions + "\n")
-    userAnswer = input(name + ": ")
+    userAnswer = input(name + ": ").lower()
     print(name + " choose " + userAnswer)
     if userAnswer == answer:
         return True
@@ -26,13 +26,7 @@ print("a precious gem, but be carefull!             ")
 print("This cave is extremely dangerous,            ")
 print("one wrong way and you die!                   ")
 print("---------------------------------------------")
-print("Rules:")
-print("Type correctly or you wil automatically")
-print("choose the wrong path")
-print("")
-print("Enter your name")
-
-name = input("Name: ")
+print("Rules:\nType correctly or you wil automatically\nchoose the wrong path\n")
 
 num = 0
 win = True
@@ -41,6 +35,23 @@ listStory = []
 listQuestions = []
 listAnswer = ["b", "d", "a", "a", "c", "416", "5", "a", "4165", "b"]
 listFailure = []
+
+if os.path.exists(fileName):    
+    with open(fileName, "r") as n:
+        loadedData = json.load(n)
+        if type(loadedData["Stage"]) == int:
+            askContinue = input("Do you want to continue from last save? (Y/N)\n").lower()
+            if askContinue == "y":
+                for k, v in loadedData.items():
+                    num = loadedData["Stage"]
+                    name = loadedData["Name"]
+            else:
+                name = input("Name: ")
+        else:
+            name = input("Name: ")
+    os.remove(fileName)
+else:
+    name = input("Name: ")
 
 for x in range(1,11):
     listStage.append(x)
@@ -87,16 +98,11 @@ listFailure.append("The weapon you chose didn't work.\nThe guard hit " + name + 
 
 winText = name + " charged the guard and the guard instantly breaks into pieces.\nAfter the guard dies, " + name + " sees the open door that was behind\nthe guard. " + name + " entered the last room and sees the gem.\n" + name + " picks up the gem and leaves the dangerous cave.\n\nThe end!\n\nCongratulations!!!!"
 
-if os.path.exists(fileName):    
-    askContinue = input("Do you want to continue from last save? (Y/N)\n")
-    if askContinue == "y" or askContinue == "Y":
-        with open(fileName, "r") as n:
-            num = int(n.read())
-    os.remove(fileName)
-
 for i in range(num, len(listStage)):
+    gameDict = {"Name" : name,"Stage" : i}
+    gameData = json.dumps(gameDict, indent=1)
     with open(fileName, "x") as j:
-        j.write(str(i))
+        j.writelines(gameData)
     if game(listStage[i], listStory[i], listQuestions[i], listAnswer[i], listFailure[i]) == False:
         lose()
         break
