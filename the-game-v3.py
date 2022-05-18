@@ -109,4 +109,8 @@ for i in range(num, len(listStage)):
     os.remove(fileName)
     
 if win:
+<<<<<<< HEAD
     print(winText)
+=======
+    print(winText)
+>>>>>>> 0bc11f6bdf53246d98f8ee353b6171b15cb9db3b

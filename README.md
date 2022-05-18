@@ -82,6 +82,7 @@ for i in range(num, len(listStage)):
         lose()
         break
     os.remove(fileName)
+<<<<<<< HEAD
 ```
 ## F1.09.03.O4 - FPS trainer Highscores
 FPS trainer V1 is aangepast met een highscore, dit is de belangrijkste functie die erbij is toegevoegd
@@ -146,4 +147,6 @@ def highscore(point):
         showScore()             
     else:
         showScore()
+=======
+>>>>>>> 0bc11f6bdf53246d98f8ee353b6171b15cb9db3b
 ```
